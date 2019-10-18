@@ -380,4 +380,10 @@ nav h1 a {
 	.inside #maincontent {
 		top: 125px;
 	}
+	
+	.inside #footer {
+		width: 100%;
+		padding-right: 15px;
+		padding-left: 2px;
+	}
 }
