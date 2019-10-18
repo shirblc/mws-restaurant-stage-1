@@ -117,10 +117,9 @@ nav h1 a {
 }
 
 #breadcrumb {
-	padding: 10px 20px 16px;
+	padding: 16px 20px;
 	list-style: none;
 	background-color: #eee;
-	font-size: 14px;
 	margin: 0;
 }
 
@@ -128,6 +127,7 @@ nav h1 a {
 #breadcrumb li {
 	display: inline;
 	max-width: 100%;
+	font-size: 16px;
 }
 
 /* Add a slash symbol (/) before/behind each list item */
@@ -289,7 +289,7 @@ nav h1 a {
 }
 
 #restaurant-address {
-	font-size: 12pt;
+	font-size: 14pt;
 	margin: 10px 5%;
 	text-align: center;
 }
@@ -405,6 +405,10 @@ nav h1 a {
 }
 
 @media screen and (min-width: 400px) {
+	#breadcrumb li {
+		font-size: 17px;
+	}
+	
 	/* ====================== Map ====================== */
 	#map {
 		height: 300px;
@@ -431,9 +435,17 @@ nav h1 a {
 		margin-right: Calc((100% - 400px) / 2);
 		margin-left: Calc((100% - 400px) / 2);
 	}
+	
+	#restaurant-hours {
+		text-align: center;
+	}
 }
 
 @media screen and (min-width: 500px) {
+	nav h1 a {
+		font-size: 17px;
+	}
+	
 	/* ====================== Map ====================== */
 	#map {
 		height: 350px;
@@ -465,6 +477,24 @@ nav h1 a {
 }
 
 @media screen and (min-width: 550px) {
+	#breadcrumb li {
+		font-size: 18px;
+	}
+	
+	#restaurant-name {
+		font-size: 24px;
+		margin-top: 10px;
+	}
+	
+	#restaurant-address {
+		font-size: 17px;
+	}
+	
+	#restaurant-hours {
+		margin-left: 9%;
+		margin-right: 0;
+	}
+	
 	#reviews-container {
 		width: 90%;
 		max-width: 90%;
@@ -479,6 +509,10 @@ nav h1 a {
 		padding: 0 10px 5px;
 		position: relative;
 		width: Calc(50% - 50px);
+	}
+	
+	#reviews-list li p {
+		font-size: 14px;
 	}
 
 }
