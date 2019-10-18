@@ -26,6 +26,11 @@
 	flex-direction: column;
 }
 
+#reviews-list {
+	display: flex;
+	flex-wrap: wrap;
+}
+
 /* General Styling */
 /*  */
 img, picture, embed, object, video {
@@ -457,4 +462,23 @@ nav h1 a {
 		height: 400px;
 		position: relative;
 	}
+}
+
+@media screen and (min-width: 550px) {
+	#reviews-container {
+		width: 90%;
+		max-width: 90%;
+		margin-right: 5%;
+		margin-left: 5%;
+	}
+	
+	#reviews-list li {
+		display: block;
+		margin: 0 10px 15px;
+		overflow: hidden;
+		padding: 0 10px 5px;
+		position: relative;
+		width: Calc(50% - 50px);
+	}
+
 }
