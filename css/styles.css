@@ -427,3 +427,34 @@ nav h1 a {
 		margin-left: Calc((100% - 400px) / 2);
 	}
 }
+
+@media screen and (min-width: 500px) {
+	/* ====================== Map ====================== */
+	#map {
+		height: 350px;
+	}
+	
+	.filter-options h2 {
+		font-size: 1.2rem;
+	}
+	
+	.filter-options select {
+		margin: 10px 25px;
+	}
+	
+	/* ====================== Restaurant Listing ====================== */
+	#restaurants-list {
+		margin: 0 10px;
+	}
+	
+	#restaurants-list li {
+		width: Calc((100% - 80px) / 2);
+		max-width: 300px;
+	}
+	
+	/* ====================== Restaurant Details ====================== */
+	.inside #map-container {
+		height: 400px;
+		position: relative;
+	}
+}
