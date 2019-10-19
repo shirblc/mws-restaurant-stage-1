@@ -37,7 +37,13 @@
 
 			<section id="restaurant-container">
 				<h1 id="restaurant-name"></h1>
-				<img id="restaurant-img">
+				<picture id="restaurant-imgs">
+					<source media="screen and (max-width: 500px)" srcset="" sizes="(max-width: 500px) 90vw">
+					<source media="screen and (min-width: 500px)" srcset="" sizes="(min-width: 500px) 80vw">
+					<source media="screen and (min-width: 700px)" srcset="" sizes="(min-width: 700px) 40vw">
+					<source media="screen and (min-width: 1000px)" srcset="" sizes="(min-width: 1000px) 40vw">
+					<img src="img/" alt="restaurant">
+				</picture>
 				<p id="restaurant-cuisine"></p>
 				<p id="restaurant-address"></p>
 				<table id="restaurant-hours"></table>
