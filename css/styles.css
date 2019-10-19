@@ -449,7 +449,8 @@ nav h1 a {
 	}
 }
 
-/*  */
+/* Breakpoint at 400px to modify the main map and the restaurant filtering in the main page, */
+/* as well as  the breadcrumb, restaurant container and opening hours in the individual pages. */
 @media screen and (min-width: 400px) {
 	/* ====================== Navigation ====================== */
 	/* Display list items side by side */
@@ -496,7 +497,8 @@ nav h1 a {
 	}
 }
 
-/*  */
+/* Breakpoint at 500px to modify the main page's layout (particularly the restaurant */
+/* list) and make the maps slightly bigger */
 @media screen and (min-width: 500px) {
 	/* ====================== Navigation ====================== */
 	/* Site title */
@@ -541,7 +543,8 @@ nav h1 a {
 	}
 }
 
-/*  */
+/* Breakpoint at 550px to modify a restaurant's individual page, making minor changes to the */
+/* restaurant information design and changing the reviews layout. */
 @media screen and (min-width: 550px) {
 	/* ====================== Navigation ====================== */
 	/* Display list items side by side */
@@ -716,6 +719,7 @@ nav h1 a {
 	}
 }
 
+/* Breakpoint at 900px to change the restaurant list layout and make headlines larger. */
 @media screen and (min-width: 900px) {
 	/* ====================== Navigation ====================== */
 	/* Site title */
@@ -840,5 +844,16 @@ nav h1 a {
 		padding: 0 20px 20px;
 		position: relative;
 		width: 80%;
+	}
+}
+
+/* Minor breakpoint at 1100px to change the restaurant list padding and content alignment. */
+@media screen and (min-width: 1100px) {
+	/* ====================== Restaurant Listing ====================== */
+	/* Restaurant list area */
+	#restaurants-list {
+		justify-content: space-between;
+		align-content: space-between;
+		padding: 20px 30px 40px;
 	}
 }
