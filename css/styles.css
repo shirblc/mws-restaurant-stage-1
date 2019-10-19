@@ -32,6 +32,11 @@
 	flex-wrap: wrap;
 }
 
+#reviews-list li {
+	display: flex;
+	flex-wrap: wrap;
+}
+
 /* General Styling */
 img, picture, embed, object, video {
 	max-width: 100%;
@@ -359,7 +364,7 @@ nav h1 a {
 /* Restaurant reviews title */
 #reviews-container h2 {
 	color: #f58500;
-	font-size: 16pt;
+	font-size: 17pt;
 	font-weight: 300;
 	padding: 0 15px 1px;
 }
@@ -374,7 +379,6 @@ nav h1 a {
 #reviews-list li {
 	background-color: #fff;
 	border: 2px solid #f3f3f3;
-	display: block;
 	list-style-type: none;
 	margin: 0 0 15px;
 	overflow: hidden;
@@ -386,6 +390,45 @@ nav h1 a {
 /* Restaurant reviews - review text */
 #reviews-list li p {
 	margin: 10px 0;
+}
+
+/* Restaurant reviews - reviewer name */
+.reviewerName {
+	display: block;
+	background-color: #444;
+	color: #ddd;
+	border-radius: 0;
+	padding: 10px;
+	font-size: 15px;
+	width: 47%;
+	font-weight: 600;
+}
+
+/* Restaurant reviews - review date */
+.reviewDate {
+	width: 40%;
+	display: block;
+	background-color: #444;
+	color: #F7A84B;
+	border-radius: 0;
+	text-align: center;
+	padding: 11px 5px;
+	font-size: 12px;
+}
+
+/* Restaurant reviews - reviewer rating */
+.reviewerRating {
+	text-align: center;
+	width: 100%;
+	font-weight: 600;
+	font-size: 14px;
+	padding: 0;
+	margin: 0;
+}
+
+/* Restaurant reviews - reviewer comments */
+.reviewerComments {
+	font-size: 14.5px;
 }
 
 /* Restaurant page footer */
@@ -491,6 +534,17 @@ nav h1 a {
 		margin-left: Calc((100% - 400px) / 2);
 	}
 	
+	/* Restaurant reviews - reviewer name */
+	.reviewerName {
+		width: 50%;
+	}
+	
+	/* Restaurant reviews - review date */
+	.reviewDate {
+		width: 40%;
+		margin-right: 0;
+	}
+	
 	/* Restaurant opening hours */
 	#restaurant-hours {
 		text-align: center;
@@ -572,25 +626,47 @@ nav h1 a {
 	
 	/* Restaurant reviews container */
 	#reviews-container {
-		width: 90%;
-		max-width: 90%;
-		margin-right: 5%;
-		margin-left: 5%;
+		width: 94%;
+		max-width: 94%;
+		margin-right: 3%;
+		margin-left: 3%;
 	}
 	
 	/* Restaurant reviews - review */
 	#reviews-list li {
-		display: block;
 		margin: 0 10px 15px;
 		overflow: hidden;
 		padding: 0 10px 5px;
 		position: relative;
 		width: Calc(50% - 50px);
+		align-content: flex-start;
 	}
 	
-	/* Restaurant reviews - review text */
-	#reviews-list li p {
-		font-size: 14px;
+	#reviews-container h2 {
+		font-size: 22px;
+	}
+	
+	/* Restaurant reviews - reviewer name */
+	.reviewerName {
+		width: 35%;
+		font-size: 16px;
+	}
+	
+	/* Restaurant reviews - review date */
+	.reviewDate {
+		width: 50%;
+		margin-right: 0;
+		font-size: 12px;
+	}
+	
+	/* Restaurant reviews - reviewer rating */
+	.reviewerRating {
+		font-size: 15px;
+	}
+
+	/* Restaurant reviews - reviewer comments */
+	.reviewerComments {
+		font-size: 15.5px;
 	}
 }
 
@@ -691,6 +767,31 @@ nav h1 a {
 	/* Restaurant opening hours table cell */
 	#restaurant-hours td {
 		font-size: 14px;
+	}
+	
+	#reviews-container h2 {
+		font-size: 24px;
+	}
+	
+	/* Restaurant reviews - reviewer name */
+	.reviewerName {
+		width: 40%;
+		font-size: 18px;
+	}
+	
+	/* Restaurant reviews - review date */
+	.reviewDate {
+		font-size: 14px;
+	}
+	
+	/* Restaurant reviews - reviewer rating */
+	.reviewerRating {
+		font-size: 16px;
+	}
+
+	/* Restaurant reviews - reviewer comments */
+	.reviewerComments {
+		font-size: 16.5px;
 	}
 }
 
@@ -834,12 +935,10 @@ nav h1 a {
 	#reviews-container h2 {
 		padding: 15px 5px;
 		margin: 0;
-		font-size: 20pt;
 	}
 	
 	/* Restaurant reviews - review */
 	#reviews-list li {
-		display: block;
 		margin: 0 0 10px;
 		padding: 0 20px 20px;
 		position: relative;
