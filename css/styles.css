@@ -589,5 +589,78 @@ nav h1 a {
 	#reviews-list li p {
 		font-size: 14px;
 	}
+}
 
+/* Breakpoint at 700px, redesigning the restaurant details area (in the restaurant */
+/* page) and making minor modifications to the map area, the restaurant list andn the title. */
+@media screen and (min-width: 700px) {
+	/* ====================== Navigation ====================== */
+	/* Site title */
+	nav h1 a {
+		font-size: 18px;
+	}
+	
+	/* ====================== Map ====================== */
+	/* Map area */
+	#map {
+		height: 400px;
+	}
+	
+	/* ====================== Restaurant Listing ====================== */
+	/* Restaurant list area */
+	#restaurants-list {
+		justify-content: center;
+	}
+	
+	/* Restaurant entry */
+	#restaurants-list li {
+		margin: 1%;
+	}
+	
+	/* ====================== Restaurant Details ====================== */
+	/* Restaurant page - restaurant details container */
+	#restaurant-container {
+		display: flex;
+		flex-wrap: wrap;
+		align-content: center;
+		justify-content: space-between;
+		width: 100%;
+	}
+	
+	/* Restaurant name */
+	#restaurant-name {
+		order: 1;
+		width: 100%;
+		text-align: center;
+	}
+	
+	/* Restaurant image */
+	#restaurant-img {
+		order: 4;
+		width: 40%;
+		left: 0;
+	}
+	
+	/* Restaurant cuisine */
+	#restaurant-cuisine {
+		order: 2;
+		width: 40%;
+		align-self: center;
+	}
+	
+	/* Restaurant address */
+	#restaurant-address {
+		order: 3;
+		width: 44%;
+		margin: 10px 3% 10px 1%;
+		font-size: 18px;
+	}
+	
+	/* Restaurant opening hours */
+	#restaurant-hours {
+		order: 5;
+		width: 40%;
+		margin-right: 3%;
+		margin-left: 1%;
+	}
 }
