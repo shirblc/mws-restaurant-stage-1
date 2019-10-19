@@ -743,3 +743,102 @@ nav h1 a {
 		font-size: 24px;
 	}
 }
+
+/* Major breakpoint at 1000px, redesigning a restaurant's individual page. */
+@media screen and (min-width: 1000px) {
+	/* ====================== Navigation ====================== */
+	/* The user's location in sitemap (within a restaurant page) */
+	#breadcrumb {
+		width: calc(45% - 40px);
+		margin-bottom: 0;
+	}
+	
+	/* ====================== Restaurant Details ====================== */
+	/* Restaurant page map container */
+	.inside #map-container {
+		background: blue none repeat scroll 0 0;
+		height: 87%;
+		position: fixed;
+		right: 0;
+		top: 66px;
+		width: 55%;
+	}
+	
+	/* Restaurant page content area */
+	.inside #maincontent {
+		top: 110px;
+	}
+	
+	/* Restaurant page - restaurant details container */
+	#restaurant-container {
+		align-content: center;
+		justify-content: center;
+		width: 45%;
+		margin-top: 0;
+	}
+	
+	/* Restaurant name */
+	#restaurant-name {
+		order: 1;
+		width: 100%;
+		text-align: center;
+		margin: 15px 0 30px;
+		line-height: 1.1;
+	}
+	
+	/* Restaurant image */
+	#restaurant-img {
+		order: 2;
+		width: 80%;
+		margin-left: 10%;
+		margin-right: 10%;
+	}
+	
+	/* Restaurant cuisine */
+	#restaurant-cuisine {
+		order: 3;
+		width: 80%;
+		margin: 2% 10% 0;
+		align-self: center;
+	}
+	
+	/* Restaurant address */
+	#restaurant-address {
+		order: 4;
+		width: 90%;
+		margin: 10px 3% 10px 3%;
+		font-size: 18px;
+		text-align: center;
+	}
+	
+	/* Restaurant opening hours */
+	#restaurant-hours {
+		order: 5;
+		width: 90%;
+		margin-right: 2%;
+		margin-left: 6%;
+	}
+	
+	/* Restaurant reviews container */
+	#reviews-container {
+		width: 45%;
+		padding: 0 30px 50px;
+		margin: 0;
+	}
+	
+	/* Restaurant reviews title */
+	#reviews-container h2 {
+		padding: 15px 5px;
+		margin: 0;
+		font-size: 20pt;
+	}
+	
+	/* Restaurant reviews - review */
+	#reviews-list li {
+		display: block;
+		margin: 0 0 10px;
+		padding: 0 20px 20px;
+		position: relative;
+		width: 80%;
+	}
+}
