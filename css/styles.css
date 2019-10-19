@@ -664,3 +664,29 @@ nav h1 a {
 		margin-left: 1%;
 	}
 }
+
+/* Breakpoint at 750px, making minor size changes to the restaurant list and */
+/* elements in the restaurant page. */
+@media screen and (min-width: 750px) {
+	/* ====================== Restaurant Listing ====================== */
+	/* Restaurant entry */
+	#restaurants-list li {
+		margin: 2%;
+	}
+	
+	/* ====================== Restaurant Details ====================== */
+	/* Restaurant address */
+	#restaurant-address {
+		margin-right: 5%;
+	}
+	
+	/* Restaurant opening hours */
+	#restaurant-hours {
+		width: 42%;
+	}
+	
+	/* Restaurant opening hours table cell */
+	#restaurant-hours td {
+		font-size: 14px;
+	}
+}
