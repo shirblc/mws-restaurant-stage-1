@@ -690,3 +690,21 @@ nav h1 a {
 		font-size: 14px;
 	}
 }
+
+/* Minor breakpoint at 800px, changing the restaurant list items' margins */
+@media screen and (min-width: 800px) {
+	/* ====================== Restaurant Listing ====================== */
+	/* Restaurant entry */
+	#restaurants-list li {
+		margin: 3.5%;
+	}
+}
+
+/* Minor breakpoint at 850px, changing the restaurant list items' margins */
+@media screen and (min-width: 850px) {
+	/* ====================== Restaurant Listing ====================== */
+	/* Restaurant entry */
+	#restaurants-list li {
+		margin: 3% 4.5%;
+	}
+}
