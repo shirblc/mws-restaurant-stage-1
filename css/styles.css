@@ -691,8 +691,15 @@ nav h1 a {
 	}
 }
 
-/* Minor breakpoint at 800px, changing the restaurant list items' margins */
+/* Minor breakpoint at 800px, changing the restaurant list items' margins & site header */
 @media screen and (min-width: 800px) {
+	/* ====================== Navigation ====================== */
+	/* Site title */
+	nav h1 a {
+		font-size: 19px;
+		letter-spacing: 0.3em;
+	}
+	
 	/* ====================== Restaurant Listing ====================== */
 	/* Restaurant entry */
 	#restaurants-list li {
@@ -706,5 +713,33 @@ nav h1 a {
 	/* Restaurant entry */
 	#restaurants-list li {
 		margin: 3% 4.5%;
+	}
+}
+
+@media screen and (min-width: 900px) {
+	/* ====================== Navigation ====================== */
+	/* Site title */
+	nav h1 a {
+		font-size: 20px;
+		letter-spacing: 0.4em;
+	}
+	
+	/* ====================== Restaurant Listing ====================== */
+	/* Restaurant list area */
+	#restaurants-list {
+		margin: 0 10px;
+	}
+	
+	/* Restaurant entry */
+	#restaurants-list li {
+		width: Calc((100% - 150px) / 3);
+		max-width: 300px;
+		margin: 3% 10px;
+	}
+	
+	/* ====================== Restaurant Details ====================== */
+	/* Restaurant name */
+	#restaurant-name {
+		font-size: 24px;
 	}
 }
