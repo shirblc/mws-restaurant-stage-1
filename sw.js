@@ -67,6 +67,20 @@ self.addEventListener('install', function(event) {
 	);
 });
 
+//event listener for activtaion to delete the old cache
+self.addEventListener('activate', function(event) {
+	event.waitUntil(
+		//get caches names
+		caches.keys().then(function(cachesKeys) {
+			cachesKeys.forEach(function(key) {
+				//if the cache isn't the currently used cache, delete it
+				if(key != currentCache)
+					caches.delete(key);
+			})
+		})
+	)
+});
+
 //event listener for a 'fetch' event to first serve all cached assets
 self.addEventListener('fetch', function(event) {
 	//checks what url to fetch, if it's the main page returns the index
