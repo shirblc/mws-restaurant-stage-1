@@ -63,3 +63,37 @@ self.addEventListener('install', function() {
 		})
 	});
 });
+
+//event listener for a 'fetch' event to first serve all cached assets
+self.addEventListener('fetch', function(event) {
+	//checks what url to fetch, if it's the main page returns the index
+	let urlToGet = '';
+	if(event.request.url == 'http://localhost:8000/')
+		urlToGet = 'index.html';
+	else
+		urlToGet = event.request.url;
+	
+	//response
+	event.respondWith(
+		//find the requested url in the cache
+		caches.match(urlToGet).then(function(response) {
+			//if there's a match in the cache, return the cached asset
+			if(response)
+				return response;
+			//if tehre's no match in the cache
+			else
+				{
+					//fetch the url from the internet, and then add it to the
+					//currently active cache
+					fetch(urlToGet).then(function(response) {
+						caches.open(currentCache).then(function(cache) {
+							cache.put(urlToGet, response);
+						})
+					})
+					
+					//return the fetched asset
+					return fetch(urlToGet);
+				}
+		})
+	)
+});
