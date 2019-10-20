@@ -1,67 +1,70 @@
-let currentCache = 'rest-review-cache-v1';
+let currentCache = 'rest-review-cache-v2';
 
 //event listener for an 'install' event to cache all information
-self.addEventListener('install', function() {
-	caches.open(currentCache).then(function(cache) {
-		//documents to cache
-		let toCache = [
-			'index.html',
-			'restaurant.html',
-			'css/styles.css',
-			'data/restaurants.json',
-			'js/restaurant_info.js',
-			'js/main.js',
-			'js/dbhelper.js'
-		];
-		
-		//fetch and cache the documents
-		cache.addAll(toCache).then(function() {
-			console.log("cached!");
-		}).catch(function(error) {
-			console.log("error:" + error);
-		});
-		
-		//photos to cache
-		let photosToCache = [];
-		
-		for(var i = 1; i <= 10; i++)
-			{
-				photosToCache.push('img/' + i + '_300p_x1.jpg');
-				photosToCache.push('img/' + i + '_300p_x2.jpg');
-				photosToCache.push('img/' + i + '_400p_x1.jpg');
-				photosToCache.push('img/' + i + '_400p_x2.jpg');
-			}
-		
-		//fetch and cache the photos
-		cache.addAll(photosToCache).then(function() {
-			console.log("cached!");
-		}).catch(function(error) {
-			console.log("error:" + error);
+self.addEventListener('install', function(event) {
+	event.waitUntil(
+		caches.open(currentCache).then(function(cache) {
+			//documents to cache
+			let toCache = [
+				'index.html',
+				'restaurant.html',
+				'css/styles.css',
+				'data/restaurants.json',
+				'js/restaurant_info.js',
+				'js/main.js',
+				'js/dbhelper.js'
+			];
+
+			//fetch and cache the documents
+			cache.addAll(toCache).then(function() {
+				console.log("cached!");
+			}).catch(function(error) {
+				console.log("error:" + error);
+			});
+
+			//photos to cache
+			let photosToCache = [];
+
+			for(var i = 1; i <= 10; i++)
+				{
+					photosToCache.push('img/' + i + '_300p_x1.jpg');
+					photosToCache.push('img/' + i + '_300p_x2.jpg');
+					photosToCache.push('img/' + i + '_400p_x1.jpg');
+					photosToCache.push('img/' + i + '_400p_x2.jpg');
+				}
+
+			//fetch and cache the photos
+			cache.addAll(photosToCache).then(function() {
+				console.log("cached!");
+			}).catch(function(error) {
+				console.log("error:" + error);
+			})
+
+			//off-site assets to cache
+			let offsiteToCache = [
+				'https://unpkg.com/leaflet@1.3.1/dist/leaflet.css',
+				'https://unpkg.com/leaflet@1.3.1/dist/leaflet.js',
+				'https://unpkg.com/leaflet@1.3.1/dist/images/marker-icon.png',
+				'https://unpkg.com/leaflet@1.3.1/dist/images/marker-icon-2x.png',
+				'https://unpkg.com/leaflet@1.3.1/dist/images/marker-shadow.png',
+				'https://api.tiles.mapbox.com/v4/mapbox.streets/12/1205/1539.jpg70?access_token=pk.eyJ1Ijoic2hpcmJsIiwiYSI6ImNrMXV4YmVmdzBhdGMzYnFtOTU1dG1sMHMifQ.E5Fyj4FF6sTTV-mPR8LTgA',
+				'https://api.tiles.mapbox.com/v4/mapbox.streets/12/1206/1539.jpg70?access_token=pk.eyJ1Ijoic2hpcmJsIiwiYSI6ImNrMXV4YmVmdzBhdGMzYnFtOTU1dG1sMHMifQ.E5Fyj4FF6sTTV-mPR8LTgA',
+				'https://api.tiles.mapbox.com/v4/mapbox.streets/12/1205/1540.jpg70?access_token=pk.eyJ1Ijoic2hpcmJsIiwiYSI6ImNrMXV4YmVmdzBhdGMzYnFtOTU1dG1sMHMifQ.E5Fyj4FF6sTTV-mPR8LTgA',
+				'https://api.tiles.mapbox.com/v4/mapbox.streets/12/1206/1540.jpg70?access_token=pk.eyJ1Ijoic2hpcmJsIiwiYSI6ImNrMXV4YmVmdzBhdGMzYnFtOTU1dG1sMHMifQ.E5Fyj4FF6sTTV-mPR8LTgA',
+				'https://api.tiles.mapbox.com/v4/mapbox.streets/12/1204/1539.jpg70?access_token=pk.eyJ1Ijoic2hpcmJsIiwiYSI6ImNrMXV4YmVmdzBhdGMzYnFtOTU1dG1sMHMifQ.E5Fyj4FF6sTTV-mPR8LTgA',
+				'https://api.tiles.mapbox.com/v4/mapbox.streets/12/1207/1539.jpg70?access_token=pk.eyJ1Ijoic2hpcmJsIiwiYSI6ImNrMXV4YmVmdzBhdGMzYnFtOTU1dG1sMHMifQ.E5Fyj4FF6sTTV-mPR8LTgA',
+				'https://api.tiles.mapbox.com/v4/mapbox.streets/12/1204/1540.jpg70?access_token=pk.eyJ1Ijoic2hpcmJsIiwiYSI6ImNrMXV4YmVmdzBhdGMzYnFtOTU1dG1sMHMifQ.E5Fyj4FF6sTTV-mPR8LTgA',
+				'https://api.tiles.mapbox.com/v4/mapbox.streets/12/1207/1540.jpg70?access_token=pk.eyJ1Ijoic2hpcmJsIiwiYSI6ImNrMXV4YmVmdzBhdGMzYnFtOTU1dG1sMHMifQ.E5Fyj4FF6sTTV-mPR8LTgA'
+			];
+			
+			//fetch and cache off-site assets
+			cache.addAll(offsiteToCache).then(function() {
+				console.log("cached");
+			}).catch(function(error) {
+				console.log("error " + error);
+			})
 		})
-		
-		//off-site assets to cache
-		let offsiteToCache = [
-			'https://unpkg.com/leaflet@1.3.1/dist/leaflet.css',
-			'https://unpkg.com/leaflet@1.3.1/dist/leaflet.js',
-			'https://unpkg.com/leaflet@1.3.1/dist/images/marker-icon.png',
-			'https://unpkg.com/leaflet@1.3.1/dist/images/marker-icon-2x.png',
-			'https://unpkg.com/leaflet@1.3.1/dist/images/marker-shadow.png',
-			'https://api.tiles.mapbox.com/v4/mapbox.streets/12/1205/1539.jpg70?access_token=pk.eyJ1Ijoic2hpcmJsIiwiYSI6ImNrMXV4YmVmdzBhdGMzYnFtOTU1dG1sMHMifQ.E5Fyj4FF6sTTV-mPR8LTgA',
-			'https://api.tiles.mapbox.com/v4/mapbox.streets/12/1206/1539.jpg70?access_token=pk.eyJ1Ijoic2hpcmJsIiwiYSI6ImNrMXV4YmVmdzBhdGMzYnFtOTU1dG1sMHMifQ.E5Fyj4FF6sTTV-mPR8LTgA',
-			'https://api.tiles.mapbox.com/v4/mapbox.streets/12/1205/1540.jpg70?access_token=pk.eyJ1Ijoic2hpcmJsIiwiYSI6ImNrMXV4YmVmdzBhdGMzYnFtOTU1dG1sMHMifQ.E5Fyj4FF6sTTV-mPR8LTgA',
-			'https://api.tiles.mapbox.com/v4/mapbox.streets/12/1206/1540.jpg70?access_token=pk.eyJ1Ijoic2hpcmJsIiwiYSI6ImNrMXV4YmVmdzBhdGMzYnFtOTU1dG1sMHMifQ.E5Fyj4FF6sTTV-mPR8LTgA',
-			'https://api.tiles.mapbox.com/v4/mapbox.streets/12/1204/1539.jpg70?access_token=pk.eyJ1Ijoic2hpcmJsIiwiYSI6ImNrMXV4YmVmdzBhdGMzYnFtOTU1dG1sMHMifQ.E5Fyj4FF6sTTV-mPR8LTgA',
-			'https://api.tiles.mapbox.com/v4/mapbox.streets/12/1207/1539.jpg70?access_token=pk.eyJ1Ijoic2hpcmJsIiwiYSI6ImNrMXV4YmVmdzBhdGMzYnFtOTU1dG1sMHMifQ.E5Fyj4FF6sTTV-mPR8LTgA',
-			'https://api.tiles.mapbox.com/v4/mapbox.streets/12/1204/1540.jpg70?access_token=pk.eyJ1Ijoic2hpcmJsIiwiYSI6ImNrMXV4YmVmdzBhdGMzYnFtOTU1dG1sMHMifQ.E5Fyj4FF6sTTV-mPR8LTgA',
-			'https://api.tiles.mapbox.com/v4/mapbox.streets/12/1207/1540.jpg70?access_token=pk.eyJ1Ijoic2hpcmJsIiwiYSI6ImNrMXV4YmVmdzBhdGMzYnFtOTU1dG1sMHMifQ.E5Fyj4FF6sTTV-mPR8LTgA'
-		];
-		
-		cache.addAll(offsiteToCache).then(function() {
-			console.log("cached");
-		}).catch(function(error) {
-			console.log("error " + error);
-		})
-	});
+	);
 });
 
 //event listener for a 'fetch' event to first serve all cached assets
