@@ -220,6 +220,11 @@ nav h1 a {
 	width: Calc((100% - 40px) / 2);
 }
 
+.filter-options select:focus {
+	outline: 0;
+	box-shadow: 1px 1px 7px 4px #000;
+}
+
 /* ====================== Restaurant Listing ====================== */
 /* Restaurant list area */
 #restaurants-list {
@@ -283,6 +288,11 @@ nav h1 a {
 	text-align: center;
 	text-decoration: none;
 	text-transform: uppercase;
+}
+
+#restaurants-list li a:focus {
+	outline: 0;
+	box-shadow: 1px 1px 7px 4px #000;
 }
 
 /* ====================== Restaurant Details ====================== */
