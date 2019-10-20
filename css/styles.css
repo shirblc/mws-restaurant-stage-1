@@ -239,14 +239,18 @@ nav h1 a {
 	padding: 0 10px 15px;
 	text-align: left;
 	width: Calc(100% - 10px - 20px);
+	align-content: space-between;
+	justify-content: space-between;
 }
 
 /* Restaurant image */
 #restaurants-list .restaurant-img {
-	background-color: #ccc;
+	background-color: #fff;
 	display: block;
 	margin: 0;
 	width: 100%;
+	height: auto;
+	object-fit: contain;
 }
 
 /* Restaurant name */
@@ -758,6 +762,10 @@ nav h1 a {
 	/* Restaurant entry */
 	#restaurants-list li {
 		margin: 1%;
+	}
+	
+	#restaurants-list li h1 {
+		font-size: 18px;
 	}
 	
 	/* ====================== Restaurant Details ====================== */
