@@ -1,4 +1,5 @@
 let restaurant;
+let reviewNum = 1;
 var newMap;
 
 /**
@@ -79,7 +80,7 @@ fetchRestaurantFromURL = (callback) => {
  */
 fillRestaurantHTML = (restaurant = self.restaurant) => {
 	const name = document.getElementById('restaurant-name');
-	name.innerHTML = restaurant.name;
+	name.innerHTML = `<a href="#restaurant-name">${restaurant.name}</a>`;
 	
 	const address = document.getElementById('restaurant-address');
 	address.innerHTML = restaurant.address;
@@ -90,14 +91,8 @@ fillRestaurantHTML = (restaurant = self.restaurant) => {
 	image.children.item(1).srcset = DBHelper.imageUrlForRestaurant(restaurant)[1];
 	image.children.item(3).srcset = DBHelper.imageUrlForRestaurant(restaurant)[1];
 	
-	if(restaurant.id < 9)
-	{
-		image.children.item(4).src = DBHelper.imageUrlForRestaurant(restaurant)[1].substr(22,17);
-	}
-	else
-	{
-		image.children.item(4).src = DBHelper.imageUrlForRestaurant(restaurant)[1].substr(23,18);
-	}
+	image.children.item(4).src = (restaurant.id < 9) ? (DBHelper.imageUrlForRestaurant(restaurant)[1].substr(22,17)) : (DBHelper.imageUrlForRestaurant(restaurant)[1].substr(23,18));
+	image.children.item(4).alt = (restaurant.id == 2) ? (`Food at the restaurant ${restaurant.name}`) : (`The restaurant ${restaurant.name}`);
 	
 	const cuisine = document.getElementById('restaurant-cuisine');
 	cuisine.innerHTML = restaurant.cuisine_type;
@@ -120,10 +115,13 @@ fillRestaurantHoursHTML = (operatingHours = self.restaurant.operating_hours) => 
 		
 		const day = document.createElement('td');
 		day.innerHTML = key;
+		day.id = key;
+		day.setAttribute('aria-describedby', 'restaurantOpeninghours');
 		row.appendChild(day);
 		
 		const time = document.createElement('td');
 		time.innerHTML = operatingHours[key];
+		time.setAttribute('aria-describedby', `restaurantOpeninghours ${day.id}`)
 		row.appendChild(time);
 		
 		hours.appendChild(row);
@@ -136,7 +134,8 @@ fillRestaurantHoursHTML = (operatingHours = self.restaurant.operating_hours) => 
 fillReviewsHTML = (reviews = self.restaurant.reviews) => {
 	const container = document.getElementById('reviews-container');
 	const title = document.createElement('h2');
-	title.innerHTML = 'Reviews';
+	title.innerHTML = '<a href="#reviews-section">Reviews</a>';
+	title.id = 'reviews-section';
 	container.appendChild(title);
 	
 	if (!reviews) {
@@ -150,6 +149,7 @@ fillReviewsHTML = (reviews = self.restaurant.reviews) => {
 	reviews.forEach(review => {
 		ul.appendChild(createReviewHTML(review));
 	});
+	reviewNum = 1;
 	container.appendChild(ul);
 }
 
@@ -161,22 +161,28 @@ createReviewHTML = (review) => {
 	const name = document.createElement('p');
 	name.innerHTML = review.name;
 	name.className = 'reviewerName';
+	name.id = `reviewerName${reviewNum}`;
 	li.appendChild(name);
 	
 	const date = document.createElement('p');
 	date.innerHTML = review.date;
 	date.className = 'reviewDate';
+	date.setAttribute('aria-describedby', `reviewer ${name.id}`);
 	li.appendChild(date);
 	
 	const rating = document.createElement('p');
 	rating.innerHTML = `Rating: ${review.rating}`;
 	rating.className = 'reviewerRating';
+	rating.setAttribute('aria-describedby', `reviewer ${name.id}`);
 	li.appendChild(rating);
 	
 	const comments = document.createElement('p');
 	comments.innerHTML = review.comments;
 	comments.className = 'reviewerComments';
+	comments.setAttribute('aria-describedby', `reviewer ${name.id}`);
 	li.appendChild(comments);
+	
+	reviewNum++;
 	
 	return li;
 }

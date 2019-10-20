@@ -154,35 +154,34 @@ fillRestaurantsHTML = (restaurants = self.restaurants) => {
  */
 createRestaurantHTML = (restaurant) => {
 	const li = document.createElement('li');
-
+	li.setAttribute('aria-label', `restaurant page for ${restaurant.name}`);
+	
 	const image = document.createElement('img');
 	image.className = 'restaurant-img';
-	if(restaurant.id <= 9)
-	{
-		image.src = DBHelper.imageUrlForRestaurant(restaurant)[0].substr(22,17);
-	}
-	else
-	{
-		image.src = DBHelper.imageUrlForRestaurant(restaurant)[0].substr(23,18);
-	}
+	image.src = (restaurant.id <= 9) ? (DBHelper.imageUrlForRestaurant(restaurant)[0].substr(22,17)) : (DBHelper.imageUrlForRestaurant(restaurant)[0].substr(23,18));
 	image.srcset = DBHelper.imageUrlForRestaurant(restaurant)[0];
+	image.alt = (restaurant.id == 2) ? (`Food at the restaurant ${restaurant.name}`) : (`The restaurant ${restaurant.name}`);
 	li.append(image);
 	
 	const name = document.createElement('h1');
 	name.innerHTML = restaurant.name;
+	name.setAttribute('aria-describedby', 'restaurantName');
 	li.append(name);
 	
 	const neighborhood = document.createElement('p');
 	neighborhood.innerHTML = restaurant.neighborhood;
+	neighborhood.setAttribute('aria-describedby', 'restaurantNeighborhood');
 	li.append(neighborhood);
 	
 	const address = document.createElement('p');
 	address.innerHTML = restaurant.address;
+	address.setAttribute('aria-describedby', 'restaurantAddress');
 	li.append(address);
 	
 	const more = document.createElement('a');
 	more.innerHTML = 'View Details';
 	more.href = DBHelper.urlForRestaurant(restaurant);
+	more.setAttribute('aria-label', `view details of the restaurant ${restaurant.name}`)
 	li.append(more)
 	
 	return li
