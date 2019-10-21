@@ -96,7 +96,32 @@ self.addEventListener('fetch', function(event) {
 		caches.match(urlToGet).then(function(response) {
 			//if there's a match in the cache, return the cached asset
 			if(response)
-				return response;
+				{
+					//fetch the url from the internet and add it to the current cache
+					//if the url on the server changed since it was cached
+					fetch(urlToGet).then(function(fetchResponse) {
+						let dateChangedString = fetchResponse.headers.get('Last-Modified');
+						let cachedChangedString = response.headers.get('Last-Modified');
+						let dateChanged = new Date(dateChangedString);
+						let cachedChanged = new Date(cachedChangedString);
+						
+						if(dateChanged.getTime() > cachedChanged.getTime())
+							{
+								caches.open(currentCache).then(function(cache) {
+									cache.put(urlToGet, fetchResponse);
+								})
+							}
+					//since fetch only fails on network failure, if the promise rejects,
+					//we can be sure there's no connection and act accordingly
+					//since we're still returning the cached object, it's not critical
+					//here, unlike the promise below
+					}).catch(function(error) {
+						console.log("you have no internet connection!")
+					})
+					
+					//return the cached asset
+					return response;
+				}
 			//if tehre's no match in the cache
 			else
 				{
