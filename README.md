@@ -2,32 +2,52 @@
 ---
 #### _Three Stage Course Material Project - Restaurant Reviews_
 
-## Project Overview: Stage 1
+## Restaurant Reviews App
 
-For the **Restaurant Reviews** projects, you will incrementally convert a static webpage to a mobile-ready web application. In **Stage One**, you will take a static design that lacks accessibility and convert the design to be responsive on different sized displays and accessible for screen reader use. You will also add a service worker to begin the process of creating a seamless offline experience for your users.
+### Current Version
 
-### Specification
+Version 1.
 
-You have been provided the code for a restaurant reviews website. The code has a lot of issues. It’s barely usable on a desktop browser, much less a mobile device. It also doesn’t include any standard accessibility features, and it doesn’t work offline at all. Your job is to update the code to resolve these issues while still maintaining the included functionality.
+### Description
 
-### Project Rubric
+The classic arcade game Frogger built with HTML5 Canvas and JavaScript! Help the beetle across the road to the water where it lives, and beware of the people walking across the road.
 
-Your project will be evaluated by a Udacity code reviewer according to the [Restaurant Reviews project rubric](https://review.udacity.com/#!/rubrics/1090/view). Please review for detailed project requirements. The rubric should be a resource you refer to periodically to make sure your project meets specifications.
+### Requirements
 
-### What do I do from here?
+- Python - Needed to run the project's server
+- A browser supporting ES6 (Any browser released after 2015)
+- Mapbox API token - You need to replace `<your MAPBOX API KEY HERE>` with a token from [Mapbox](https://www.mapbox.com/). Mapbox is free to use, and does not require any payment information. Simply sign up and get your API token.
 
-1. In this folder, start up a simple HTTP server to serve up the site files on your local computer. Python has some simple tools to do this, and you don't even need to know Python. For most people, it's already installed on your computer.
+### Installation & Usage
+
+1. Download or clone this repository.
+2. Open this folder. In it, start up a simple HTTP server to serve up the site files on your local computer. Python has some simple tools to do this, and you don't even need to know Python. For most people, it's already installed on your computer.
 
     * In a terminal, check the version of Python you have: `python -V`. If you have Python 2.x, spin up the server with `python -m SimpleHTTPServer 8000` (or some other port, if port 8000 is already in use.) For Python 3.x, you can use `python3 -m http.server 8000`. If you don't have Python installed, navigate to Python's [website](https://www.python.org/) to download and install the software.
    * Note -  For Windows systems, Python 3.x is installed as `python` by default. To start a Python 3.x server, you can simply enter `python -m http.server 8000`.
-2. With your server running, visit the site: `http://localhost:8000`, and look around for a bit to see what the current experience looks like.
-3. Explore the provided code, and start making a plan to implement the required features in three areas: responsive design, accessibility and offline use.
-4. Write code to implement the updates to get this site on its way to being a mobile-ready website.
+3. With your server running, visit the site: `http://localhost:8000`, and look around for a bit to see what the current experience looks like.
+4. Don't forget to replace the Mapbox API key before running.
 
-## Leaflet.js and Mapbox:
+#### Server Port
 
-This repository uses [leafletjs](https://leafletjs.com/) with [Mapbox](https://www.mapbox.com/). You need to replace `<your MAPBOX API KEY HERE>` with a token from [Mapbox](https://www.mapbox.com/). Mapbox is free to use, and does not require any payment information.
+If you run the server on a different port than the one mentioned, remember to change the port number in the dbhelper.js file. You can find it in the DATABASE_URL static method.
 
-### Note about ES6
+### Code Features
 
-Most of the code in this project has been written to the ES6 JavaScript specification for compatibility with modern web browsers and future-proofing JavaScript code. As much as possible, try to maintain use of ES6 in any additional JavaScript you write.
+#### Leaflet.js and Mapbox:
+
+This repository uses [leafletjs](https://leafletjs.com/) with [Mapbox](https://www.mapbox.com/). 
+
+#### Service Worker and Cache
+
+This repository utilises a service worker to cache all visited pages to the device cache. The service worker acts on three events:
+
+1. Installation - when a service worker is installed, it caches the pages' HTML, the CSS, the JavaScript, the photos and all off-site assets required by the main page.
+2. Activation - when a service worker is activated, it deletes any cache not currently in use.
+3. Fetch event - upon a fetch request from the browser, the service worker attempts to find a match for the requested URL in the cache.
+    * If it finds a match, the service worker returns the cached URL while reaching out to the network to see if anything has changed. If it has, it simultaneously caches the new page.
+    * If it doesn't find a match, the service worker attempts to fetch the URL from the internet. If it succeeds, it adds the URL to the cache and displays it. If not, it returns a cached "no connection" error page.
+	
+### Known Issues
+
+There are no known issues at the time.
