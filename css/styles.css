@@ -199,7 +199,7 @@ nav h1 a {
 }
 
 /* Filter options area title */
-.filter-options h2 {
+.filter-options h3 {
 	color: white;
 	font-size: 1rem;
 	font-weight: normal;
@@ -263,7 +263,7 @@ nav h1 a {
 }
 
 /* Restaurant name */
-#restaurants-list li h1 {
+#restaurants-list li h2 {
 	color: #004CB3;
 	font-family: Arial,sans-serif;
 	font-size: 13pt;
@@ -346,19 +346,6 @@ nav h1 a {
 	text-align: center
 }
 
-/* Restaurant name */
-#restaurant-name a {
-	color: #004CB3;
-	font-family: Arial,sans-serif;
-	font-size: 20pt;
-	font-weight: 200;
-	letter-spacing: 0;
-	margin: 25px 10px 20px;
-	text-transform: uppercase;
-	line-height: 1.1;
-	text-align: center
-}
-
 /* Restaurant image */
 #restaurant-imgs > img {
 	width: 90%;
@@ -413,15 +400,7 @@ nav h1 a {
 }
 
 /* Restaurant reviews title */
-#reviews-container h2 {
-	color: #004CB3;
-	font-size: 17pt;
-	font-weight: 300;
-	padding: 0 15px 1px;
-}
-
-/* Restaurant reviews title */
-#reviews-section a {
+#reviews-container h3 {
 	color: #004CB3;
 	font-size: 17pt;
 	font-weight: 300;
@@ -606,7 +585,7 @@ nav h1 a {
 	}
 	
 	/* Filter options area title */
-	.filter-options h2 {
+	.filter-options h3 {
 		font-size: 1.1rem;
 	}
 	
@@ -676,7 +655,7 @@ nav h1 a {
 	
 	/* ====================== Restaurant Filtering ====================== */
 	/* Filter options area title */
-	.filter-options h2 {
+	.filter-options h3 {
 		font-size: 1.2rem;
 	}
 	
@@ -764,7 +743,7 @@ nav h1 a {
 	}
 	
 	/* Restaurant reviews title */
-	#reviews-container h2 {
+	#reviews-container h3 {
 		font-size: 22px;
 	}
 	
@@ -819,7 +798,7 @@ nav h1 a {
 	}
 	
 	/* Restaurant entry - Restaurant name */
-	#restaurants-list li h1 {
+	#restaurants-list li h2 {
 		font-size: 18px;
 	}
 	
@@ -907,7 +886,7 @@ nav h1 a {
 	}
 	
 	/* Restaurant reviews title */
-	#reviews-container h2 {
+	#reviews-container h3 {
 		font-size: 24px;
 	}
 	
@@ -1070,7 +1049,7 @@ nav h1 a {
 	}
 	
 	/* Restaurant reviews title */
-	#reviews-container h2 {
+	#reviews-container h3 {
 		padding: 15px 5px;
 		margin: 0;
 	}

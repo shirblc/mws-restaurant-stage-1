@@ -68,7 +68,7 @@ fetchRestaurantFromURL = (callback) => {
 fillRestaurantHTML = (restaurant = self.restaurant) => {
 	//restaurant name title
 	const name = document.getElementById('restaurant-name');
-	name.innerHTML = `<a href="#restaurant-name">${restaurant.name}</a>`;
+	name.innerHTML = restaurant.name;
 	
 	//restaurant address
 	const address = document.getElementById('restaurant-address');
@@ -132,9 +132,10 @@ fillReviewsHTML = (reviews = self.restaurant.reviews) => {
 	//gets the reviews container
 	const container = document.getElementById('reviews-container');
 	//creates the reviews title
-	const title = document.createElement('h2');
-	title.innerHTML = '<a href="#reviews-section">Reviews</a>';
+	const title = document.createElement('h3');
+	title.innerHTML = 'Reviews';
 	title.id = 'reviews-section';
+	title.setAttribute('tabindex', '0');
 	container.appendChild(title);
 	
 	//if there are no reviews, creates a "no reviews" message
@@ -188,6 +189,7 @@ createReviewHTML = (review) => {
 	comments.innerHTML = review.comments;
 	comments.className = 'reviewerComments';
 	comments.setAttribute('aria-describedby', `reviewer ${name.id}`);
+	comments.setAttribute('tabindex', '0');
 	li.appendChild(comments);
 	
 	//once done with this review, adds to the review number for the next review

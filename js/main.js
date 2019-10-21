@@ -172,7 +172,7 @@ createRestaurantHTML = (restaurant) => {
 	li.append(image);
 	
 	//restaurant name
-	const name = document.createElement('h1');
+	const name = document.createElement('h2');
 	name.innerHTML = restaurant.name;
 	name.setAttribute('aria-describedby', 'restaurantName');
 	li.append(name);

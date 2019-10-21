@@ -18,25 +18,25 @@
 			<nav role="navigation">
 				<h1><a href="/">Restaurant Reviews</a></h1>
 				<!-- Skip links -->
-				<a href="#filter" class="skip-link">Skip to filtering options</a>
-				<a href="#restaurants-list" class="skip-link">Skip to restaurant list</a>
+				<a href="#filter" class="skip-link" role="navigation">Skip to filtering options</a>
+				<a href="#restaurants-list" class="skip-link" role="navigation">Skip to restaurant list</a>
 			</nav>
 			<!-- End nav -->
 		</header>
 		<!-- End header -->
 		
 		<!-- Beginning main -->
-		<main id="maincontent" role="main">
+		<main id="maincontent">
 			<!-- Beginning map -->
-			<section id="map-container" aria-label="restaurants map">
+			<section id="map-container" aria-label="restaurants map" role="complementary">
 				<div id="map"></div>
 			</section>
 			<!-- End map -->
 			<!-- Beginning restaurants list -->
 			<section id="filter" aria-label="restaurants list">
 				<!-- Beginning filtering options -->
-				<div class="filter-options">
-					<h2>Filter Results</h2>
+				<div class="filter-options" role="listbox">
+					<h3>Filter Results</h3>
 					<select id="neighborhoods-select" name="neighborhoods" onchange="updateRestaurants()" aria-label="filter by neighborhood">
 						<option value="all">All Neighborhoods</option>
 					</select>
@@ -45,7 +45,7 @@
 					</select>
 				</div>
 				<!-- End filtering options -->
-				<ul id="restaurants-list" aria-label="restaurants list"></ul> 
+				<ul id="restaurants-list" aria-label="restaurants list" role="main"></ul> 
 			</section>
 			<!-- End restaurants list -->
 		</main>
