@@ -1,7 +1,7 @@
 @charset "utf-8";
 /* CSS Document */
 
-/* Flexbox Declarations */
+/* ====================== Flexbox declarations ====================== */
 #breadcrumb {
 	display: flex;
 	flex-wrap: wrap;
@@ -37,7 +37,7 @@
 	flex-wrap: wrap;
 }
 
-/* General Styling */
+/* ====================== General styling ====================== */
 img, picture, embed, object, video {
 	max-width: 100%;
 }
@@ -85,11 +85,13 @@ article, aside, canvas, details, figcaption, figure, footer, header, hgroup, men
 	max-width: 100%;
 }
 
+/* skip links */
 .skip-link {
 	position: absolute;
 	left: -200px;
 }
 
+/* skip links focus ring */
 .skip-link:focus {
 	left: 0;
 	top: 0;
@@ -97,6 +99,7 @@ article, aside, canvas, details, figcaption, figure, footer, header, hgroup, men
 	font-size: 12pt;
 }
 
+/* hidden elements */
 .hidden {
 	position: absolute;
 	left: -200px;
@@ -220,6 +223,7 @@ nav h1 a {
 	width: Calc((100% - 40px) / 2);
 }
 
+/* Filter options area drop-downs focus ring */
 .filter-options select:focus {
 	outline: 0;
 	box-shadow: 1px 1px 7px 4px #000;
@@ -290,6 +294,7 @@ nav h1 a {
 	text-transform: uppercase;
 }
 
+/* Restaurant "view details" link focus ring */
 #restaurants-list li a:focus {
 	outline: 0;
 	box-shadow: 1px 1px 7px 4px #000;
@@ -341,6 +346,7 @@ nav h1 a {
 	text-align: center
 }
 
+/* Restaurant name */
 #restaurant-name a {
 	color: #004CB3;
 	font-family: Arial,sans-serif;
@@ -414,6 +420,7 @@ nav h1 a {
 	padding: 0 15px 1px;
 }
 
+/* Restaurant reviews title */
 #reviews-section a {
 	color: #004CB3;
 	font-size: 17pt;
@@ -756,6 +763,7 @@ nav h1 a {
 		align-content: flex-start;
 	}
 	
+	/* Restaurant reviews title */
 	#reviews-container h2 {
 		font-size: 22px;
 	}
@@ -810,6 +818,7 @@ nav h1 a {
 		margin: 1%;
 	}
 	
+	/* Restaurant entry - Restaurant name */
 	#restaurants-list li h1 {
 		font-size: 18px;
 	}
@@ -840,6 +849,7 @@ nav h1 a {
 		margin-right: 5%;
 	}
 	
+	/* Restaurant image */
 	#restaurant-imgs > img {
 		width: 100%;
 		margin-left: 0;
@@ -896,6 +906,7 @@ nav h1 a {
 		font-size: 14px;
 	}
 	
+	/* Restaurant reviews title */
 	#reviews-container h2 {
 		font-size: 24px;
 	}

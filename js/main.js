@@ -14,7 +14,11 @@ document.addEventListener('DOMContentLoaded', (event) => {
 	fetchCuisines();
 });
 
+/**
+ * Register the service worker
+ */
 registerServiceWorker = () => {
+	//if the browser doesn't support service workers, quit here
 	if(!navigator.serviceWorker) return;
 	
 	navigator.serviceWorker.register('/sw.js');
@@ -38,7 +42,9 @@ fetchNeighborhoods = () => {
  * Set neighborhoods HTML.
  */
 fillNeighborhoodsHTML = (neighborhoods = self.neighborhoods) => {
+	//gets the select menu
 	const select = document.getElementById('neighborhoods-select');
+	//adds a menu item for each neighbourhood
 	neighborhoods.forEach(neighborhood => {
 		const option = document.createElement('option');
 		option.innerHTML = neighborhood;
@@ -65,7 +71,9 @@ fetchCuisines = () => {
  * Set cuisines HTML.
  */
 fillCuisinesHTML = (cuisines = self.cuisines) => {
+	//gets the select menu
 	const select = document.getElementById('cuisines-select');
+	//adds a menu item for each cuisine
 	cuisines.forEach(cuisine => {
 		const option = document.createElement('option');
 		option.innerHTML = cuisine;
@@ -92,18 +100,6 @@ initMap = () => {
 	
 	updateRestaurants();
 }
-/* window.initMap = () => {
-  let loc = {
-    lat: 40.722216,
-    lng: -73.987501
-  };
-  self.map = new google.maps.Map(document.getElementById('map'), {
-    zoom: 12,
-    center: loc,
-    scrollwheel: false
-  });
-  updateRestaurants();
-} */
 
 /**
  * Update page and map for current restaurants.
@@ -149,7 +145,9 @@ resetRestaurants = (restaurants) => {
  * Create all restaurants HTML and add them to the webpage.
  */
 fillRestaurantsHTML = (restaurants = self.restaurants) => {
+	//gets the list HTML element
 	const ul = document.getElementById('restaurants-list');
+	//add each restaurant to the element
 	restaurants.forEach(restaurant => {
 		ul.append(createRestaurantHTML(restaurant));
 	});
@@ -160,31 +158,38 @@ fillRestaurantsHTML = (restaurants = self.restaurants) => {
  * Create restaurant HTML.
  */
 createRestaurantHTML = (restaurant) => {
+	//restaurant container
 	const li = document.createElement('li');
 	li.setAttribute('aria-label', `restaurant page for ${restaurant.name}`);
 	
+	//restaurant image
 	const image = document.createElement('img');
 	image.className = 'restaurant-img';
+	//restaurant picture - sets the source and the alt text
 	image.src = (restaurant.id <= 9) ? (DBHelper.imageUrlForRestaurant(restaurant)[0].substr(22,17)) : (DBHelper.imageUrlForRestaurant(restaurant)[0].substr(23,18));
 	image.srcset = DBHelper.imageUrlForRestaurant(restaurant)[0];
 	image.alt = (restaurant.id == 2) ? (`Food at the restaurant ${restaurant.name}`) : (`The restaurant ${restaurant.name}`);
 	li.append(image);
 	
+	//restaurant name
 	const name = document.createElement('h1');
 	name.innerHTML = restaurant.name;
 	name.setAttribute('aria-describedby', 'restaurantName');
 	li.append(name);
 	
+	//restaurant neighbourhood
 	const neighborhood = document.createElement('p');
 	neighborhood.innerHTML = restaurant.neighborhood;
 	neighborhood.setAttribute('aria-describedby', 'restaurantNeighborhood');
 	li.append(neighborhood);
 	
+	//restaurant address
 	const address = document.createElement('p');
 	address.innerHTML = restaurant.address;
 	address.setAttribute('aria-describedby', 'restaurantAddress');
 	li.append(address);
 	
+	//restaurant view more link
 	const more = document.createElement('a');
 	more.innerHTML = 'View Details';
 	more.href = DBHelper.urlForRestaurant(restaurant);
@@ -207,15 +212,4 @@ addMarkersToMap = (restaurants = self.restaurants) => {
 		}
 		self.markers.push(marker);
 	});
-} 
-/* addMarkersToMap = (restaurants = self.restaurants) => {
-  restaurants.forEach(restaurant => {
-    // Add marker to the map
-    const marker = DBHelper.mapMarkerForRestaurant(restaurant, self.map);
-    google.maps.event.addListener(marker, 'click', () => {
-      window.location.href = marker.url
-    });
-    self.markers.push(marker);
-  });
-} */
-
+}
