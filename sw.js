@@ -1,4 +1,4 @@
-let currentCache = 'rest-review-cache-v2';
+let currentCache = 'rest-review-cache-v5';
 
 //event listener for an 'install' event to cache all information
 self.addEventListener('install', function(event) {
@@ -8,6 +8,7 @@ self.addEventListener('install', function(event) {
 			let toCache = [
 				'index.html',
 				'restaurant.html',
+				'noconnection.html',
 				'css/styles.css',
 				'data/restaurants.json',
 				'js/restaurant_info.js',
@@ -137,9 +138,10 @@ self.addEventListener('fetch', function(event) {
 						console.log("you have no internet connection!");
 					})
 					
-					//return the fetched asset
+					//return the fetched asset, or, if there's no connection,
+					//the "no connection" error page
 					return fetch(urlToGet).catch(function() {
-						return new Response("You have no internet connection!");
+						return caches.match('noconnection.html');
 					});
 				}
 		})
