@@ -102,14 +102,20 @@ self.addEventListener('fetch', function(event) {
 				{
 					//fetch the url from the internet, and then add it to the
 					//currently active cache
-					fetch(urlToGet).then(function(response) {
+					fetch(urlToGet).then(function(fetchResponse) {
 						caches.open(currentCache).then(function(cache) {
-							cache.put(urlToGet, response);
+							cache.put(urlToGet, fetchResponse);
 						})
+					//since fetch only fails on network failure, if the promise rejects,
+					//we can be sure there's no connection and act accordingly
+					}).catch(function() {
+						console.log("you have no internet connection!");
 					})
 					
 					//return the fetched asset
-					return fetch(urlToGet);
+					return fetch(urlToGet).catch(function() {
+						return new Response("You have no internet connection!");
+					});
 				}
 		})
 	)
