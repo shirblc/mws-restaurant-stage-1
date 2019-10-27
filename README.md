@@ -10,7 +10,7 @@ Version 1.
 
 ### Description
 
-The classic arcade game Frogger built with HTML5 Canvas and JavaScript! Help the beetle across the road to the water where it lives, and beware of the people walking across the road.
+A responsive, offline-ready restaurant reviews app, built as part of the Udacity Front-End Nanodegree.
 
 ### Requirements
 
